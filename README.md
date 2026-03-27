@@ -11,5 +11,6 @@ Sistema de gestión de libros desarrollado con Spring Boot.
 - CRUD de libros
 - Arquitectura hexagonal
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 - Orlando Mora
+- Sebastian Charry
