@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.rest.dto;
+package com.biblio2.biblio2.infrastructure.rest.dto;
 /**
  * DTO de respuesta: LibroResponse
  * Se utiliza para serializar a JSON la respuesta HTTP

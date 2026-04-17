@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.persistence.entity;
+package com.biblio2.biblio2.infrastructure.persistence.entity;
 import jakarta.persistence.*;
 /**
  * Entidad JPA: LibroEntity

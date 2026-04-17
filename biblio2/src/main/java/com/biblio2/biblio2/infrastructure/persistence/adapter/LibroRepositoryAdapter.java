@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.persistence.adapter;
+package com.biblio2.biblio2.infrastructure.persistence.adapter;
 import com.biblio2.biblio2.domain.entity.Libro;
 import com.biblio2.biblio2.domain.port.LibroRepositoryPort;
 import com.biblio2.biblio2.infrastructure.persistence.entity.LibroEntity;

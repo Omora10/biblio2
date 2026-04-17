@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.domain.usecase;
+package com.biblio2.biblio2.domain.usecase;
 import com.biblio2.biblio2.domain.entity.Libro;
 /**
  * Caso de uso: Actualizar un libro existente

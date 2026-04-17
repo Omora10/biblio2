@@ -1,6 +1,7 @@
-﻿package com.biblio2.biblio2.application.service;
+package com.biblio2.biblio2.application.service;
 import com.biblio2.biblio2.domain.entity.Libro;
 import com.biblio2.biblio2.domain.port.LibroRepositoryPort;
+import com.biblio2.biblio2.application.exception.LibroNoEncontradoException;
 import com.biblio2.biblio2.domain.usecase.*;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -47,10 +48,10 @@ public class LibroApplicationService implements
             .orElseThrow(() -> new LibroNoEncontradoException("Libro con ID " + id + " no encontrado"));
     }
     /**
-     * Implementación de EliminarLibroUseCase
+     * Implementacin de EliminarLibroUseCase
      */
     @Override
-    public void ejecutar(Long id) {
+    public void eliminar(Long id) {
         if (!libroRepository.existe(id)) {
             throw new LibroNoEncontradoException("Libro con ID " + id + " no encontrado");
         }

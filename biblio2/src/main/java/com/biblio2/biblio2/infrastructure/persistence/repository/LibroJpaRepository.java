@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.persistence.repository;
+package com.biblio2.biblio2.infrastructure.persistence.repository;
 import com.biblio2.biblio2.infrastructure.persistence.entity.LibroEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

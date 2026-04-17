@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.rest.dto;
+package com.biblio2.biblio2.infrastructure.rest.dto;
 /**
  * DTO de solicitud: LibroRequest
  * Se utiliza para deserializar el JSON de entrada en las peticiones HTTP

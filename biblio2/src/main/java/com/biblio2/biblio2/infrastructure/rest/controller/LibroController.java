@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.infrastructure.rest.controller;
+package com.biblio2.biblio2.infrastructure.rest.controller;
 import com.biblio2.biblio2.domain.entity.Libro;
 import com.biblio2.biblio2.domain.usecase.*;
 import com.biblio2.biblio2.infrastructure.rest.dto.LibroRequest;
@@ -84,7 +84,7 @@ public class LibroController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarLibro(@PathVariable Long id) {
-        eliminarLibroUseCase.ejecutar(id);
+        eliminarLibroUseCase.eliminar(id);
         return ResponseEntity.noContent().build();
     }
     /**

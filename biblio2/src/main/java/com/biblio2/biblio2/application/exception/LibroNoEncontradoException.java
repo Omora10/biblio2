@@ -1,4 +1,4 @@
-﻿package com.biblio2.biblio2.application.exception;
+package com.biblio2.biblio2.application.exception;
 /**
  * Excepción de aplicación: Libro no encontrado
  */
