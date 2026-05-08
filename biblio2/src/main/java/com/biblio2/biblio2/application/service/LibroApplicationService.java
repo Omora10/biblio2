@@ -1,8 +1,8 @@
 package com.biblio2.biblio2.application.service;
 import com.biblio2.biblio2.domain.entity.Libro;
 import com.biblio2.biblio2.domain.port.LibroRepositoryPort;
-import com.biblio2.biblio2.application.exception.LibroNoEncontradoException;
-import com.biblio2.biblio2.domain.usecase.*;
+import com.biblio2.biblio2.domain.exception.LibroNoEncontradoException;
+import com.biblio2.biblio2.domain.usecase.libro.*;
 import org.springframework.stereotype.Service;
 import java.util.List;
 /**

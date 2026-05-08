@@ -17,6 +17,10 @@ public class LibroEntity {
     private String autor;
     @Column(nullable = false, length = 20, unique = true)
     private String isbn;
+
+    @Column(nullable = false)
+    private boolean prestado = false;
+
     // Constructores
     public LibroEntity() {
     }
@@ -56,6 +60,15 @@ public class LibroEntity {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    public boolean isPrestado() {
+        return prestado;
+    }
+
+    public void setPrestado(boolean prestado) {
+        this.prestado = prestado;
+    }
+
     @Override
     public String toString() {
         return "LibroEntity{" +
@@ -63,6 +76,7 @@ public class LibroEntity {
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", isbn='" + isbn + '\'' +
+                ", prestado=" + prestado +
                 '}';
     }
 }

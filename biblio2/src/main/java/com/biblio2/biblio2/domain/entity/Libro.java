@@ -11,6 +11,7 @@ public class Libro {
     private String titulo;
     private String autor;
     private String isbn;
+    private boolean prestado = false;
 
     /**
      * Constructor sin argumentos para frameworks de serialización
@@ -71,6 +72,14 @@ public class Libro {
         this.isbn = isbn;
     }
 
+    public boolean isPrestado() {
+        return prestado;
+    }
+
+    public void setPrestado(boolean prestado) {
+        this.prestado = prestado;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -78,6 +87,7 @@ public class Libro {
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", isbn='" + isbn + '\'' +
+                ", prestado=" + prestado +
                 '}';
     }
 }

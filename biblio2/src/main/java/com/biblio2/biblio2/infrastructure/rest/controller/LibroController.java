@@ -1,6 +1,6 @@
 package com.biblio2.biblio2.infrastructure.rest.controller;
 import com.biblio2.biblio2.domain.entity.Libro;
-import com.biblio2.biblio2.domain.usecase.*;
+import com.biblio2.biblio2.domain.usecase.libro.*;
 import com.biblio2.biblio2.infrastructure.rest.dto.LibroRequest;
 import com.biblio2.biblio2.infrastructure.rest.dto.LibroResponse;
 import org.springframework.http.HttpStatus;
