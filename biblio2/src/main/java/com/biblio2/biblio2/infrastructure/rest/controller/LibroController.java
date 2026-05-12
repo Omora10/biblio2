@@ -1,8 +1,8 @@
 package com.biblio2.biblio2.infrastructure.rest.controller;
 import com.biblio2.biblio2.domain.entity.Libro;
 import com.biblio2.biblio2.domain.usecase.libro.*;
-import com.biblio2.biblio2.infrastructure.rest.dto.LibroRequest;
-import com.biblio2.biblio2.infrastructure.rest.dto.LibroResponse;
+import com.biblio2.biblio2.application.dto.LibroRequest;
+import com.biblio2.biblio2.application.dto.LibroResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -87,15 +87,16 @@ public class LibroController {
         eliminarLibroUseCase.eliminar(id);
         return ResponseEntity.noContent().build();
     }
-    /**
-     * Mapea una entidad de dominio a un DTO de respuesta
-     */
-    private LibroResponse mapToResponse(Libro libro) {
-        return new LibroResponse(
-            libro.getId(),
-            libro.getTitulo(),
-            libro.getAutor(),
-            libro.getIsbn()
-        );
-    }
+     /**
+      * Mapea una entidad de dominio a un DTO de respuesta
+      */
+     private LibroResponse mapToResponse(Libro libro) {
+         return new LibroResponse(
+             libro.getId(),
+             libro.getTitulo(),
+             libro.getAutor(),
+             libro.getIsbn(),
+             libro.isPrestado()
+         );
+     }
 }

@@ -1,8 +1,8 @@
 package com.biblio2.biblio2.infrastructure.rest.exception;
 
-import com.biblio2.biblio2.application.exception.LibroNoEncontradoException;
-import com.biblio2.biblio2.application.exception.UsuarioNoEncontradoException;
-import com.biblio2.biblio2.application.exception.PrestamoNoDisponibleException;
+import com.biblio2.biblio2.domain.exception.LibroNoEncontradoException;
+import com.biblio2.biblio2.domain.exception.UsuarioNoEncontradoException;
+import com.biblio2.biblio2.domain.exception.PrestamoNoDisponibleException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
