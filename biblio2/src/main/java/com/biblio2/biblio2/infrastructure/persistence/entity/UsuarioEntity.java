@@ -1,6 +1,6 @@
 package com.biblio2.biblio2.infrastructure.persistence.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 /**
  * Entidad JPA: Usuario

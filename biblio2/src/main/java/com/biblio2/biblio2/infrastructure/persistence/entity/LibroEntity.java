@@ -1,5 +1,5 @@
 package com.biblio2.biblio2.infrastructure.persistence.entity;
-import jakarta.persistence.*;
+import javax.persistence.*;
 /**
  * Entidad JPA: LibroEntity
  * Mapea la tabla 'libros' en la base de datos
