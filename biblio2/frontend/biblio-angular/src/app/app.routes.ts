@@ -6,7 +6,6 @@ import { InventarioListComponent } from './features/inventario/inventario-list/i
 import { InventarioNuevoComponent } from './features/inventario/inventario-nuevo/inventario-nuevo.component';
 import { PrestamosListComponent } from './features/prestamos/prestamos-list/prestamos-list.component';
 import { PrestamosNuevoComponent } from './features/prestamos/prestamos-nuevo/prestamos-nuevo.component';
-import { LectoresComponent } from './features/lectores/lectores.component';
 import { UsuariosComponent } from './features/usuarios/usuarios.component';
 
 export const routes: Routes = [
@@ -21,7 +20,11 @@ export const routes: Routes = [
       { path: 'inventario/nuevo', component: InventarioNuevoComponent },
       { path: 'prestamos', component: PrestamosListComponent },
       { path: 'prestamos/nuevo', component: PrestamosNuevoComponent },
-      { path: 'lectores', component: LectoresComponent },
+      {
+        path: 'lectores',
+        loadComponent: () =>
+          import('./features/lectores/lectores.component').then((component) => component.LectoresComponent)
+      },
       { path: 'usuarios', component: UsuariosComponent }
     ]
   },

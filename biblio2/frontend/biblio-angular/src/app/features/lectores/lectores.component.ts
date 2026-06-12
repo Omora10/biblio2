@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 interface Reader {
   id: string;
@@ -14,9 +13,9 @@ interface Reader {
 @Component({
   selector: 'app-lectores',
   standalone: true,
-  imports: [FormsModule],
+  imports: [],
   templateUrl: './lectores.component.html',
-  styleUrl: './lectores.component.css'
+  styleUrls: ['./lectores.component.css']
 })
 export class LectoresComponent {
   readers: Reader[] = [
@@ -56,6 +55,13 @@ export class LectoresComponent {
 
   editReader(reader: Reader): void {
     this.selectedReader = { ...reader };
+  }
+
+  updateSelectedReader(field: keyof Pick<Reader, 'nombre' | 'correo' | 'telefono' | 'estado'>, value: string): void {
+    this.selectedReader = {
+      ...this.selectedReader,
+      [field]: value
+    };
   }
 
   saveReader(): void {

@@ -67,25 +67,48 @@
         <span class="material-symbols-outlined">close</span>
       </header>
 
-      <form #readerForm="ngForm" (ngSubmit)="saveReader()">
+      <form (submit)="$event.preventDefault(); saveReader()">
         <label class="field field-wide">
           <span>Nombre Completo</span>
-          <input name="nombre" type="text" [(ngModel)]="selectedReader.nombre" required>
+          <input
+            name="nombre"
+            type="text"
+            [value]="selectedReader.nombre"
+            (input)="updateSelectedReader('nombre', $any($event.target).value)"
+            required
+          >
         </label>
 
         <label class="field">
           <span>Correo</span>
-          <input name="correo" type="email" [(ngModel)]="selectedReader.correo" required>
+          <input
+            name="correo"
+            type="email"
+            [value]="selectedReader.correo"
+            (input)="updateSelectedReader('correo', $any($event.target).value)"
+            required
+          >
         </label>
 
         <label class="field">
           <span>Telefono</span>
-          <input name="telefono" type="tel" [(ngModel)]="selectedReader.telefono" required>
+          <input
+            name="telefono"
+            type="tel"
+            [value]="selectedReader.telefono"
+            (input)="updateSelectedReader('telefono', $any($event.target).value)"
+            required
+          >
         </label>
 
         <label class="field">
           <span>Estado</span>
-          <select name="estado" [(ngModel)]="selectedReader.estado" required>
+          <select
+            name="estado"
+            [value]="selectedReader.estado"
+            (change)="updateSelectedReader('estado', $any($event.target).value)"
+            required
+          >
             <option value="Activo">Activo</option>
             <option value="Inactivo">Inactivo</option>
           </select>
@@ -93,7 +116,7 @@
 
         <label class="field">
           <span>ID de Usuario</span>
-          <input name="id" type="text" [(ngModel)]="selectedReader.id" readonly>
+          <input name="id" type="text" [value]="selectedReader.id" readonly>
         </label>
 
         <div class="state-panel">
@@ -105,7 +128,7 @@
             <input
               type="checkbox"
               [checked]="selectedReader.estado === 'Activo'"
-              (change)="selectedReader.estado = selectedReader.estado === 'Activo' ? 'Inactivo' : 'Activo'"
+              (change)="updateSelectedReader('estado', selectedReader.estado === 'Activo' ? 'Inactivo' : 'Activo')"
             >
             <span></span>
           </label>
