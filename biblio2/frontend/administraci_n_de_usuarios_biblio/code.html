@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biblio | Administración de Usuarios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#261a00",
+              "secondary": "#565c84",
+              "primary-fixed": "#dee0ff",
+              "tertiary-fixed": "#ffdf9e",
+              "on-secondary-fixed-variant": "#3e446b",
+              "primary-fixed-dim": "#bac3ff",
+              "surface": "#f9f9fb",
+              "surface-container-low": "#f3f3f5",
+              "inverse-primary": "#bac3ff",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#454652",
+              "surface-variant": "#e2e2e4",
+              "on-secondary-fixed": "#12183d",
+              "surface-container-high": "#e8e8ea",
+              "on-primary-container": "#cacfff",
+              "surface-tint": "#4355b9",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c5c5d4",
+              "primary-container": "#3f51b5",
+              "surface-bright": "#f9f9fb",
+              "tertiary-container": "#745600",
+              "on-surface": "#1a1c1d",
+              "surface-container-highest": "#e2e2e4",
+              "secondary-fixed": "#dee0ff",
+              "error-container": "#ffdad6",
+              "tertiary": "#574000",
+              "surface-container": "#eeeef0",
+              "on-background": "#1a1c1d",
+              "on-primary-fixed-variant": "#293ca0",
+              "inverse-surface": "#2f3132",
+              "inverse-on-surface": "#f0f0f2",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#c9cffd",
+              "on-secondary-container": "#51577f",
+              "on-error": "#ffffff",
+              "surface-dim": "#d9dadc",
+              "on-primary-fixed": "#00105c",
+              "tertiary-fixed-dim": "#fabd00",
+              "primary": "#24389c",
+              "background": "#f9f9fb",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "outline": "#757684",
+              "on-tertiary-container": "#ffcc55",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "secondary-fixed-dim": "#bec4f2"
+            },
+            fontFamily: {
+              "headline": ["Work Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, .font-headline { font-family: 'Work Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (from JSON) -->
+<aside class="bg-indigo-900 dark:bg-indigo-950 h-screen w-64 fixed left-0 top-0 z-40 shadow-xl dark:shadow-none flex flex-col h-full py-6">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="library_books">library_books</span>
+</div>
+<div>
+<h1 class="text-2xl font-black text-white tracking-tight">Biblio</h1>
+<p class="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-indigo-200/70 hover:text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-xs Inter">Dashboard</span>
+</a>
+<a class="text-indigo-200/70 hover:text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium text-xs Inter">Inventario</span>
+</a>
+<!-- Active State: Usuarios -->
+<a class="bg-white/10 text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-medium text-xs Inter">Usuarios</span>
+</a>
+<a class="text-indigo-200/70 hover:text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="import_contacts">import_contacts</span>
+<span class="font-medium text-xs Inter">Préstamos</span>
+</a>
+</nav>
+<div class="px-6 pt-6 border-t border-white/10">
+<div class="flex items-center gap-3">
+<img alt="Biblio Logo" class="w-8 h-8 rounded-full border border-white/20" data-alt="professional portrait of a library administrator in a minimalist office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa8UFAW2RthxPMuzyC34pNDzTs0ez9UQH3sC_kHmLCgkJ4i2CeMM1RCSQF_mO98f0bHcNQB8Iw4ndO45JO-Vgol8LnN5lOOZv8wFwqOBaVKg1YlGmDgnUdKaayQEvHfcPBMojloc_scdA3ikXTrQDrdfeW7bN6tathy_NwU-kuqZW2weS9MdI6BaCGT_2j81T_LMKRV_I98n2Q_wo3qGRXiTeAunGvvFP3LD1bwz1VmxecJSWUpNsfUHqJ2gAGDL2ZCKf-EdMNkAk"/>
+<div class="overflow-hidden">
+<p class="text-white text-xs font-bold truncate">Admin Biblio</p>
+<p class="text-indigo-300 text-[10px] truncate">admin@biblio.system</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (from JSON) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex items-center justify-between px-8">
+<div class="flex items-center gap-6 flex-1">
+<h2 class="text-lg font-bold Work Sans text-indigo-900 dark:text-indigo-100 shrink-0">Biblio: Sistema Integral</h2>
+<div class="relative w-full max-w-md focus-within:ring-2 ring-indigo-500/20 rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50/50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-0 placeholder:text-slate-400" placeholder="Buscar usuarios, IDs o correos..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-200 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-200 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="ml-2 px-4 py-2 bg-primary text-on-primary font-bold text-sm rounded-lg hover:shadow-lg transition-all active:scale-95">
+                Check-in/Check-out
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-12 pb-12 bg-surface min-h-screen">
+<!-- Editorial Page Header -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<nav class="flex gap-2 text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-2">
+<span class="opacity-50">Administración</span>
+<span class="opacity-50">/</span>
+<span class="text-primary">Usuarios</span>
+</nav>
+<h1 class="text-5xl font-black text-on-surface tracking-tighter leading-none">Gestión de Lectores</h1>
+<p class="mt-4 text-on-surface-variant max-w-xl text-sm leading-relaxed">
+                    Supervise la base de datos de miembros, gestione permisos de acceso y realice el seguimiento de la actividad de préstamos históricos.
+                </p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-4 rounded-lg font-bold shadow-md hover:shadow-xl transition-all">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span>Añadir Nuevo Usuario</span>
+</button>
+</div>
+<!-- Filter Bar: Asymmetric Tonal Layout -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<div class="col-span-8 bg-surface-container-low p-6 rounded-xl flex items-center gap-6">
+<div class="flex-1">
+<label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-2 ml-1">Estado de Membresía</label>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-semibold">Todos</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-xs font-semibold hover:bg-surface-variant transition-colors">Activos</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-xs font-semibold hover:bg-surface-variant transition-colors">Inactivos</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-xs font-semibold hover:bg-surface-variant transition-colors">Sancionados</button>
+</div>
+</div>
+<div class="h-12 w-px bg-outline-variant/30"></div>
+<div class="w-48">
+<label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-2 ml-1">Ordenar por</label>
+<select class="w-full bg-transparent border-none text-sm font-semibold text-primary focus:ring-0 p-0">
+<option>Nombre (A-Z)</option>
+<option>Fecha Registro</option>
+<option>Préstamos Activos</option>
+</select>
+</div>
+</div>
+<div class="col-span-4 bg-tertiary-fixed/20 p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-on-tertiary-fixed-variant font-black text-2xl">1,284</p>
+<p class="text-[10px] font-bold uppercase text-on-tertiary-fixed-variant tracking-wider">Lectores Registrados</p>
+</div>
+<div class="w-12 h-12 bg-tertiary-fixed-dim rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="group">group</span>
+</div>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-8 py-4 text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Nombre y Perfil</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Email / ID</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Miembro desde</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Préstamos</th>
+<th class="px-8 py-4 text-[10px] font-bold uppercase text-on-surface-variant tracking-widest text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<img alt="Usuario" class="w-10 h-10 rounded-lg object-cover" data-alt="close-up portrait of a cheerful young student with glasses in a bright library environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRFD8fV65J9DSYIt9AbicquHOLyudknYnB98f-THaadSBp7cM2oj2b2M70_nYXHStIaJvjXeJ3VnBhATAjPUtbUjtHlLsRiph5PtP9KfYZHvCUH2mf3OUf3lXS7-b_3fmncXNeLtUGS7FVY67lz0-OaJupDmtQa8yCUo9EBcKwwsczHRm0_JxRYVMJd7wmajX-SrqmYIKvWZDryDNOi-YSrP9xYrqUoM3lN-rnVRLXAsSIqE1xGsOM-4BwE8B9JrKspl5Aigl00Ys"/>
+<div>
+<p class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">Alejandro Mendoza</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Estudiante Universitario</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">amendoza@edu.co</p>
+<p class="text-[10px] text-on-surface-variant font-mono">ID: 2024-UX-982</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">
+                            12 Oct, 2023
+                        </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed">
+                                3 Activos
+                            </span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<img alt="Usuario" class="w-10 h-10 rounded-lg object-cover" data-alt="professional woman in her late 30s with a warm smile in a corporate office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOrqOrQ0wN5qCrFZa0iZF0BoAo5PnJFHEBB3Ux9YqoQzcHMQJ0M-zv807GlN2kwPSkn_GPf_vrfSjW809H-NwNPCs_GAvaKLdq_PTb4EF-JK5ABoKlfTnwWgj571F9GFxiNxnQqVtd0oMNDzp_wwyGiG4aGW-a-XdFwARIoO-dYRMxaKMUWBoCLNxdqO-Kfy0JvbmwZTUkCN5CKvZziLFoMygy4QrJ_TQbx43O8Kdg8-tw8li24M-l2HNMGh_MsYmDcybohGIWLhs"/>
+<div>
+<p class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">Elena Rodríguez</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Investigadora Senior</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">elena.rod@ciencia.org</p>
+<p class="text-[10px] text-on-surface-variant font-mono">ID: 2023-RS-114</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">
+                            05 Ene, 2023
+                        </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-highest text-on-surface-variant">
+                                0 Activos
+                            </span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Overdue) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<img alt="Usuario" class="w-10 h-10 rounded-lg object-cover" data-alt="middle aged man with a creative look wearing a turtleneck and looking thoughtful" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzwzPD9z_WM5rFxmmy4LLonmly_TxwdvR9P9U39r9N7BvocbS5sPNKsBFDwmq04t0ThNF_1BJ3Y3jKsXKqu7L97QnkDIsX79QSMxlAvPiuSOy1x7QEvX3gJWpPymt9uJ8ZOTh9CV7FtP5ppr1xgWRhSyVYMLN7GrrpBUeyCysAB2G7v2SzyEbtI0t55zSLTKgjrMDu2WwKb4bYa80G0rZmwAhqykv8eyoxvQFU1coz1qh0qyZyiUKz3Cni0UjIdh5ljFbTD7cSmoo"/>
+<div>
+<p class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">Carlos Villa</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Docente</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">c.villa@u-central.edu</p>
+<p class="text-[10px] text-on-surface-variant font-mono">ID: 2024-TC-442</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">
+                            15 Feb, 2024
+                        </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container">
+                                1 Vencido
+                            </span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="block" style="font-variation-settings: 'FILL' 1;">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Controls -->
+<div class="px-8 py-6 bg-surface-container-low flex items-center justify-between">
+<p class="text-xs text-on-surface-variant font-medium">
+                    Mostrando <span class="text-on-surface font-bold">1 - 10</span> de <span class="text-on-surface font-bold">1,284</span> usuarios
+                </p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface transition-colors font-bold text-xs">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface transition-colors font-bold text-xs">3</button>
+<span class="px-2 text-on-surface-variant font-bold">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface transition-colors font-bold text-xs">129</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Info Section (Asymmetric) -->
+<div class="mt-12 flex gap-8">
+<div class="flex-1 bg-surface-container-high/40 p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-xl text-indigo-900 mb-4">Exportar Base de Datos</h3>
+<p class="text-sm text-on-surface-variant max-w-sm mb-6">Obtenga un informe detallado en formato CSV o PDF con toda la información de contacto y métricas de uso de sus lectores.</p>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-white rounded text-sm font-bold text-indigo-900 shadow-sm border border-indigo-100 hover:shadow transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                            CSV
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white rounded text-sm font-bold text-indigo-900 shadow-sm border border-indigo-100 hover:shadow transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            PDF
+                        </button>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl text-indigo-900/5 rotate-12" data-icon="summarize">summarize</span>
+</div>
+<div class="w-1/3 bg-primary p-8 rounded-xl text-on-primary flex flex-col justify-between">
+<div>
+<h3 class="font-headline font-bold text-xl mb-2">Ayuda del Sistema</h3>
+<p class="text-indigo-200 text-sm leading-relaxed">¿Necesita asistencia masiva para importar usuarios? Consulte nuestra guía de gestión documental.</p>
+</div>
+<a class="inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4 hover:text-white transition-colors" href="#">
+                    Ver Documentación
+                    <span class="material-symbols-outlined text-lg" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nuevo Préstamo - Biblio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e8e8ea",
+              "outline": "#757684",
+              "tertiary-fixed-dim": "#fabd00",
+              "tertiary-container": "#745600",
+              "on-secondary-fixed": "#12183d",
+              "surface-container-highest": "#e2e2e4",
+              "surface": "#f9f9fb",
+              "primary-fixed-dim": "#bac3ff",
+              "on-error-container": "#93000a",
+              "background": "#f9f9fb",
+              "on-primary-fixed-variant": "#293ca0",
+              "inverse-on-surface": "#f0f0f2",
+              "on-secondary-fixed-variant": "#3e446b",
+              "tertiary": "#574000",
+              "on-background": "#1a1c1d",
+              "outline-variant": "#c5c5d4",
+              "primary-fixed": "#dee0ff",
+              "secondary-container": "#c9cffd",
+              "surface-container": "#eeeef0",
+              "secondary-fixed-dim": "#bec4f2",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "on-secondary-container": "#51577f",
+              "on-error": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#565c84",
+              "tertiary-fixed": "#ffdf9e",
+              "surface-tint": "#4355b9",
+              "on-tertiary-container": "#ffcc55",
+              "primary-container": "#3f51b5",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d9dadc",
+              "on-primary-fixed": "#00105c",
+              "error": "#ba1a1a",
+              "primary": "#24389c",
+              "on-primary": "#ffffff",
+              "on-surface-variant": "#454652",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e2e2e4",
+              "on-tertiary-fixed": "#261a00",
+              "on-surface": "#1a1c1d",
+              "inverse-surface": "#2f3132",
+              "on-primary-container": "#cacfff",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#bac3ff",
+              "secondary-fixed": "#dee0ff",
+              "surface-container-low": "#f3f3f5",
+              "surface-bright": "#f9f9fb"
+            },
+            fontFamily: {
+              "headline": ["Work Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Work Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-40 bg-white/80 backdrop-blur-md shadow-sm flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-indigo-900 tracking-tighter">Biblio</span>
+<div class="hidden md:flex gap-6 font-inter text-sm">
+<a class="text-slate-500 hover:text-indigo-600 transition-colors" href="#">Catálogo</a>
+<a class="text-indigo-700 font-bold border-b-2 border-indigo-700" href="#">Préstamos</a>
+<a class="text-slate-500 hover:text-indigo-600 transition-colors" href="#">Usuarios</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-indigo-900">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-indigo-900">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Avatar del bibliotecario" class="h-full w-full object-cover" data-alt="Professional headshot of a friendly librarian in a modern office setting, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCimZC0-U9yJQorVdR4I1M5z7wuYQ2QZX3BBEWxKT7wmJP921-TbILweI-uDq3EbgmfzYUncCt7qPx--1ZGJF8xJsZVwwQprOI1eNkimNo-qSpXivG5k4Mz8kPWwIvNjiypV9MpAWAODMDTPqcg0Yk8gy0MXUG2mD8yihYDT_rjbJWAohAo_N2nqK9xUMtQJ_nfFaJswjV08WxunGahENjV4EmmLhZ4g28JLaZKYjBgSvsNsPu8mpPMKRu0P0NKEG783pCVop8_2kA"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-30 bg-slate-50 flex flex-col p-4 gap-2 pt-20 hidden lg:flex">
+<div class="mb-8 px-2">
+<h2 class="font-work-sans font-bold text-indigo-900 text-lg">Archivo Digital</h2>
+<p class="text-xs text-slate-500">Gestión Editorial</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-medium text-sm">Libros</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-700 font-bold rounded-lg scale-98" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-medium text-sm">Préstamos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-sm">Lectores</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Configuración</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-20 p-8 min-h-screen">
+<header class="flex justify-between items-end mb-12">
+<div>
+<h1 class="text-4xl font-black text-indigo-900 tracking-tight mb-2">Préstamos Activos</h1>
+<p class="text-on-surface-variant font-body">Supervisión de circulación y nuevas solicitudes de archivo.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-md font-bold text-sm shadow-sm hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Nuevo Registro
+            </button>
+</header>
+<!-- Asymmetric Bento Grid for Loan Overview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="md:col-span-2 bg-surface-container-low p-6 rounded-xl">
+<h3 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-6">Tendencias Semanales</h3>
+<div class="h-48 flex items-end gap-2">
+<div class="flex-1 bg-indigo-200 h-1/2 rounded-t-sm"></div>
+<div class="flex-1 bg-indigo-300 h-3/4 rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-full rounded-t-sm"></div>
+<div class="flex-1 bg-indigo-300 h-2/3 rounded-t-sm"></div>
+<div class="flex-1 bg-indigo-200 h-1/3 rounded-t-sm"></div>
+<div class="flex-1 bg-indigo-100 h-1/4 rounded-t-sm"></div>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-xl flex flex-col justify-between">
+<div>
+<h3 class="text-indigo-200 text-sm font-bold uppercase tracking-widest mb-2">Libros por Vencer</h3>
+<p class="text-5xl font-black">12</p>
+</div>
+<div class="text-sm text-indigo-100 flex items-center gap-2">
+<span class="material-symbols-outlined">warning</span>
+                    Acción inmediata requerida
+                </div>
+</div>
+</div>
+<!-- Data Table (The Core Component) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Lector</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Libro / ISBN</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Fecha Préstamo</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Estado</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent">
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Lector" class="object-cover h-full w-full" data-alt="Portrait of a male student looking thoughtful, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSCDspms-baUrMPWSmgZKjV7tRUioqTDqbk3ISrRrKIsnCSH7p0FztxUjWbAsMc33-QrVDt8Jciqm8BBDlzh9HHaxBo16CeL-eRj2Ziz2dXIyQcH1uaWcAeSh0of6KMzZxFD1Yzvcm52jkEJSa5Wksz2d8wQbTyp7XE9IlcFmc25gE0NbIAzTSwRY2gzptctFGATPyguuXwvCSbhGXh0lwq8sXVX6Ugb-T3OU93r_mfvTHfvVbRzmdnySnefsEwphocQ3i4pUIxNs"/>
+</div>
+<div>
+<p class="text-sm font-bold">Carlos Mendoza</p>
+<p class="text-xs text-on-surface-variant">ID: 88291</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">El Aleph - Jorge Luis Borges</p>
+<p class="text-xs text-on-surface-variant">978-0142437889</p>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">12 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-tertiary-fixed text-on-tertiary-fixed">
+                                Pendiente
+                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-indigo-600 hover:text-indigo-900 font-bold text-xs uppercase tracking-tighter">Detalles</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Lector" class="object-cover h-full w-full" data-alt="Close up portrait of a smiling woman with glasses, library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQc5ZxCqrOD6xhJZp5VzRbwnEbaGI-JA1N1_Qa_zmukp1eXmVPI5Ou9VC427RCsR-OEwMZS8ouN5K3mEYjjlGtSLGG6jtuJKKkGJyyIm7qAEdX6uOZLqWcgwlydNsKkyjBD18EbVIo5VeLAzBbUnkHiL1jQJ2z0x2kLKpyHgZ-DpBYwJZJ8a3JIVvmz9b7BwCaezsfsr6nhJAiMyaqjHxo4kpmRFypOSyFN_JbFvIBtOyeEKBpmbEGquBo0ctgjgA6HesKd3DrakE"/>
+</div>
+<div>
+<p class="text-sm font-bold">Elena Rivas</p>
+<p class="text-xs text-on-surface-variant">ID: 10442</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">Rayuela - Julio Cortázar</p>
+<p class="text-xs text-on-surface-variant">978-0307475275</p>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">08 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error-container text-on-error-container">
+                                Vencido
+                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-indigo-600 hover:text-indigo-900 font-bold text-xs uppercase tracking-tighter">Detalles</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+<!-- Modal Overlay (New Loan) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-indigo-950/40 backdrop-blur-sm">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden border border-white/20">
+<!-- Modal Header -->
+<div class="px-8 py-6 bg-surface-container-low flex justify-between items-center">
+<div>
+<h2 class="text-2xl font-black text-indigo-900 tracking-tight">Nuevo Préstamo - Biblio</h2>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold mt-1">Registrar salida de ejemplar</p>
+</div>
+<button class="text-slate-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content (Form) -->
+<form class="p-8 space-y-8">
+<!-- Section: Usuario -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Seleccionar Usuario</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">person_search</span>
+<input class="w-full bg-surface-container pl-12 pr-4 py-4 rounded-md border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all text-on-surface placeholder-slate-400" placeholder="Buscar por Nombre o ID de Usuario..." type="text"/>
+</div>
+<!-- Selection Feedback (Simulated) -->
+<div class="mt-4 flex items-center gap-4 p-3 bg-indigo-50/50 rounded-lg hidden">
+<div class="w-10 h-10 rounded-full bg-indigo-200"></div>
+<div>
+<p class="text-sm font-bold">Marta Galdós</p>
+<p class="text-xs text-indigo-600">Socio #55201 • Sin deudas</p>
+</div>
+</div>
+</div>
+<!-- Section: Libro -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Seleccionar Libro</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">menu_book</span>
+<input class="w-full bg-surface-container pl-12 pr-4 py-4 rounded-md border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all text-on-surface placeholder-slate-400" placeholder="Buscar por Título o ISBN..." type="text"/>
+</div>
+</div>
+<!-- Section: Fecha & Meta -->
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Fecha de Devolución</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">calendar_today</span>
+<input class="w-full bg-surface-container pl-12 pr-4 py-4 rounded-md border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all text-on-surface" type="date"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Estado de Entrega</label>
+<div class="flex items-center gap-3 py-4">
+<span class="inline-flex px-4 py-2 bg-indigo-50 text-indigo-700 rounded-md text-sm font-bold border border-indigo-100">
+                                Excelente Estado
+                            </span>
+</div>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="flex justify-end items-center gap-4 pt-4 mt-8 border-t border-surface-container-high">
+<button class="text-slate-600 font-bold text-sm px-6 py-3 hover:bg-slate-50 rounded-md transition-all" type="button">
+                        Cancelar
+                    </button>
+<button class="bg-primary text-on-primary font-black text-sm px-10 py-3 rounded-md shadow-lg shadow-indigo-900/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                        CONFIRMAR PRÉSTAMO
+                    </button>
+</div>
+</form>
+</div>
+</div>
+</body></html>
